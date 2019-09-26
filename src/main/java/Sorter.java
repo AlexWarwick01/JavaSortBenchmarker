@@ -14,8 +14,20 @@ public class Sorter {
         }
 
     }
-//THIS IS A METHOD THAT WILL COMPLETE A MERGE SORT
-    int partition(int arr[], int low, int high){
+    //END OF BUBBLESORT
+
+//THIS IS A METHOD THAT WILL COMPLETE A QUICKSORT
+    void qSort(int arr[], int low, int high){
+        if (low < high){
+            int pIndex = partition(arr, low, high);
+
+            qSort(arr, low, pIndex-1);
+            qSort(arr, pIndex+1, high);
+        }
+    }
+
+
+    private int partition(int arr[], int low, int high){
         int pivot = arr[high];
         int i = (low-1);
         for (int j=low; j<high; j++){
@@ -34,4 +46,5 @@ public class Sorter {
 
         return i+1;
     }
+
 }
